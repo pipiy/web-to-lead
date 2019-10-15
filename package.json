@@ -1,0 +1,20 @@
+{
+  "name": "web-to-lead",
+  "version": "0.0.1",
+  "description": "",
+  "repository": {
+    "type:": "git",
+    "url": "git@github.com:pipiy/intetics.git"
+  },
+  "dependencies": {
+    "gzippo": "^0.2.0",
+    "express": "^3.5.3"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test",
+    "start": "node web.js"
+  }
+}
