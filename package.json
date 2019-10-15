@@ -4,7 +4,7 @@
   "description": "",
   "repository": {
     "type:": "git",
-    "url": "git@github.com:pipiy/intetics.git"
+    "url": "git@github.com:pipiy/web-to-lead.git"
   },
   "dependencies": {
     "gzippo": "^0.2.0",
