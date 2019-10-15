@@ -67,7 +67,7 @@
 										<div class="form-group">
 											<div class="col-md-6">
 												<input type="text" class="form-control" id="first_name" name="first_name"
-												       placeholder="First Name" required>
+												       placeholder="First Name">
 											</div>
 											<div class="col-md-6">
 												<input type="text" class="form-control" id="last_name" name="last_name"
@@ -121,7 +121,6 @@
 
 		<script>
 			window.onload = function() {
-				debugger
 				var currentUrl = window.location.href;
 				var url = "https://web-to-lead-form.herokuapp.com/";
 				history.pushState(currentUrl, null, url);
