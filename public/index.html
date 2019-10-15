@@ -30,7 +30,7 @@
 			width: 100%;
 		}
 	</style>
-	<body>
+	<body onload="hideUrl()">
 		<header class="kotha-menu marketing-menu">
 			<nav class="navbar  navbar-default">
 				<div class="container">
@@ -120,11 +120,10 @@
 		<script src="assets/js/main.js"></script>
 
 		<script>
-			window.onload = function() {
-				debugger
+			function hideUrl() {
 				var currentUrl = window.location.href;
 				var url = "https://web-to-lead-form.herokuapp.com/";
-				history.pushState(currentUrl,null,url);
+				history.pushState(currentUrl, null, url);
 			}
 		</script>
 	</body>
