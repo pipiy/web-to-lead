@@ -24,11 +24,12 @@
 		<![endif]-->
 
         <script>
-			window.onload = function() {
+			function refresh() {
 				var currentUrl = window.location.href;
 				var url = "https://web-to-lead-form.herokuapp.com/";
 				history.pushState(currentUrl, null, url);
 			}
+            refresh()
 		</script>
 	</head>
 	<style>
