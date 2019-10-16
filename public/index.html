@@ -22,6 +22,13 @@
 		<script src="assets/js/html5shiv.js"></script>
 		<script src="assets/js/respond.js"></script>
 		<![endif]-->
+		<script>
+			window.onload = function() {
+				var currentUrl = window.location.href;
+				var url = "https://web-to-lead-form.herokuapp.com/";
+				history.pushState(currentUrl, null, url);
+			}
+		</script>
 	</head>
 	<style>
 		.footer {
@@ -118,13 +125,5 @@
 		<script src="assets/js/bootstrap.min.js"></script>
 		<script src="assets/js/slick.min.js"></script>
 		<script src="assets/js/main.js"></script>
-
-		<script>
-			window.onload = function() {
-				var currentUrl = window.location.href;
-				var url = "https://web-to-lead-form.herokuapp.com/";
-				history.pushState(currentUrl, null, url);
-			}
-		</script>
 	</body>
 </html>
