@@ -22,19 +22,15 @@
 		<script src="assets/js/html5shiv.js"></script>
 		<script src="assets/js/respond.js"></script>
 		<![endif]-->
-		<script>
-			window.onload = function() {
-				var currentUrl = window.location.href;
-				var url = "https://web-to-lead-form.herokuapp.com/";
-				history.pushState(currentUrl, null, url);
-			}
-		</script>
 	</head>
 	<style>
 		.footer {
 			position: absolute;
 			bottom: 0;
 			width: 100%;
+		}
+		.alert.hide-alert {
+			display: none;
 		}
 	</style>
 	<body>
@@ -63,12 +59,17 @@
 		<div class="kotha-default-content">
 			<div class="container">
 				<div class="row">
+					<div class="alert alert-warning alert-dismissible hide-alert" id="slds-notify" role="alert">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="closeAlert()"><span aria-hidden="true">&times;</span></button>
+						<strong id="text-error"></strong>
+					</div>
 					<div class="col-sm-12">
 						<article class="single-blog contact-us">
 							<div class="post-content">
 								<div class="leave-comment">
 									<h4>Convert Lead</h4>
-									<form class="form-horizontal contact-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+									<form class="form-horizontal contact-form" id="form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
+										method="POST" onsubmit="check(event)">
 										<input type="hidden" name="oid" value="00D0o000001Ro6e" />
                 						<input type="hidden" name="retURL" value="https://web-to-lead-form.herokuapp.com/thank-you.html" />
 										<div class="form-group">
@@ -83,8 +84,8 @@
 										</div>
 										<div class="form-group">
 											<div class="col-md-12">
-												<input type="email" class="form-control" id="email" name="email"
-												       placeholder="Email">
+												<input type="text" class="form-control" id="email" name="email"
+												       placeholder="Email" required>
 											</div>
 										</div>
 										<div class="form-group">
@@ -125,5 +126,42 @@
 		<script src="assets/js/bootstrap.min.js"></script>
 		<script src="assets/js/slick.min.js"></script>
 		<script src="assets/js/main.js"></script>
+
+		<script>
+			window.onload = function() {
+				var currentUrl = window.location.href;
+				var url = "https://web-to-lead-form.herokuapp.com/";
+				history.pushState(currentUrl, null, url);
+			}
+
+			function check(e) {
+				debugger
+                e.preventDefault();
+                var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+                var form = document.getElementById("form");
+                var notify = document.getElementById("slds-notify");
+                var lname = document.getElementById("last_name").value;
+                var email = document.getElementById("email").value;
+                var company = document.getElementById("company").value;
+                var error = document.getElementById("text-error");
+
+                if (lname != "" && email != "" && company != "") {
+                    if (reg.test(email) === false) {
+                    	notify.classList.remove("hide-alert");
+                        error.innerText = "Invalid Email!";
+						return false;
+                    }
+                    form.submit();
+                } else {
+                    notify.classList.remove("hide-alert");
+                    error.innerText = "Something wrong!";
+                    return false;
+                }
+            }
+
+            function closeAlert() {
+                document.getElementById("slds-notify").classList.add("hide-alert");
+            }
+		</script>
 	</body>
 </html>
