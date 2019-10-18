@@ -61,7 +61,7 @@
         					<main id="main" class="site-main"  >
 
         						<section class="error-404 not-found text-center">
-        							<h2 class="404">Lead was successfully converted</h2>
+        							<h2 class="404" id="leadName">/h2>
         							<p class="lead">We will contact you soon!</p>
         							<div class="row">
                                         <p class="go-back-home"><a href="/">
@@ -74,14 +74,6 @@
         		</div>
         	</div>
         </div>
-
-		<footer class="footer">
-			<div class="container">
-				<div class="footer-widget-row">
-
-				</div>
-			</div>
-		</footer>
 		<!--//Script//-->
 		<script src="assets/js/jquery-1.12.4.min.js"></script>
 		<script src="assets/js/bootstrap.min.js"></script>
@@ -93,6 +85,13 @@
 				var currentUrl = window.location.href;
 				var url = "https://web-to-lead-form.herokuapp.com/";
 				history.pushState(currentUrl, null, url);
+				var title = document.getElementById("leadName");
+				var lname = localStorage.getItem("last_name");
+				var email = localStorage.getItem("email");
+				var company = localStorage.getItem("company");
+
+				title.innerText = lname + email + company + " " + was successfully converted;
+				localStorage.clear();
 			}
 		</script>
 	</body>

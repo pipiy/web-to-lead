@@ -113,14 +113,6 @@
 				</div>
 			</div>
 		</div>
-
-		<footer class="footer">
-			<div class="container">
-				<div class="footer-widget-row">
-
-				</div>
-			</div>
-		</footer>
 		<!--//Script//-->
 		<script src="assets/js/jquery-1.12.4.min.js"></script>
 		<script src="assets/js/bootstrap.min.js"></script>
@@ -151,6 +143,9 @@
                         error.innerText = "Invalid Email!";
 						return false;
                     }
+					localStorage.setItem("last_name", lname);
+					localStorage.setItem("email", email);
+					localStorage.setItem("company", company);
                     form.submit();
                 } else {
                     notify.classList.remove("hide-alert");
